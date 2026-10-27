@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+ <title>ShopNest | Your Everyday Marketplace</title>
+ <meta
+ name="description"
+ content="ShopNest is a modern online shopping marketplace for fashion, home, technology, beauty, and more."
+ />
+
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+ <link
+ href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+ rel="stylesheet"
+ />
+
+ <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+ <!-- Top notification bar -->
+ <div class="topbar">
+ <div class="container topbar-content">
+ <p>Free shipping on orders over $50</p>
+ <div class="topbar-links">
+ <a href="#contact">Help Center</a>
+ <a href="#contact">Track Order</a>
+ </div>
+ </div>
+ </div>
+
+ <!-- Header -->
+ <header class="site-header">
+ <nav class="navbar container">
+ <a href="#home" class="logo">
+ Shop<span>Nest</span>
+ </a>
+
+ <form class="search-box" id="searchForm">
+ <input
+ type="search"
+ id="searchInput"
+ placeholder="Search products, categories and brands..."
+ aria-label="Search products"
+ />
+ <button type="submit" aria-label="Search">🔍</button>
+ </form>
+
+ <div class="header-actions">
+ <button class="icon-button" id="accountButton" aria-label="Account">
+ <span>👤</span>
+ <small>Account</small>
+ </button>
+
+ <button class="icon-button cart-button" id="cartButton" aria-label="Shopping cart">
+ <span>🛒</span>
+ <small>Cart (<span id="cartCount">0</span>)</small>
+ </button>
+
+ <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">
+ ☰
+ </button>
+ </div>
+ </nav>
+
+ <div class="nav-menu">
+ <div class="container nav-menu-content" id="navLinks">
+ <a href="#home">Home</a>
+ <a href="#categories">Categories</a>
+ <a href="#shop">Shop</a>
+ <a href="#deals">Deals</a>
+ <a href="#about">About Us</a>
+ <a href="#contact">Contact</a>
+ </div>
+ </div>
+ </header>
+
+ <main>
+ <!-- Hero -->
+ <section class="hero" id="home">
+ <div class="container hero-grid">
+ <div class="hero-content">
+ <p class="eyebrow">Welcome to ShopNest Marketplace</p>
+
+ <h1>Everything you need, <em>all in one place.</em></h1>
+
+ <p class="hero-text">
+ Discover thousands of carefully selected products for your home,
+ style, technology, wellness, and everyday life.
+ </p>
+
+ <div class="hero-buttons">
+ <a href="#shop" class="button primary">Shop Best Sellers</a>
+ <a href="#categories" class="button secondary">Explore Categories</a>
+ </div>
+
+ <div class="hero-benefits">
+ <span>✓ Secure checkout</span>
+ <span>✓ Easy returns</span>
+ <span>✓ Fast delivery</span>
+ </div>
+ </div>
+
+ <div class="hero-image-wrap">
+ <img
+ src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=85"
+ alt="Modern clothing and shopping display"
+ class="hero-image"
+ />
+ <div class="hero-badge">
+ <strong>Up to 40% off</strong>
+ <span>Selected new arrivals</span>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Categories -->
+ <section class="section categories-section" id="categories">
+ <div class="container">
+ <div class="section-title-row">
+ <div>
+ <p class="eyebrow">Browse by department</p>
+ <h2>Shop Popular Categories</h2>
+ </div>
+ <a href="#shop" class="text-link">View all products →</a>
+ </div>
+
+ <div class="category-grid">
+ <button class="category-card" data-category="Fashion">
+ <img
+ src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=600&q=80"
+ alt="Fashion clothing"
+ />
+ <span>Fashion</span>
+ </button>
+
+ <button class="category-card" data-category="Tech">
+ <img
+ src="https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=600&q=80"
+ alt="Technology products"
+ />
+ <span>Technology</span>
+ </button>
+
+ <button class="category-card" data-category="Home">
+ <img
+ src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=600&q=80"
+ alt="Home decor"
+ />
+ <span>Home & Living</span>
+ </button>
+
+ <button class="category-card" data-category="Beauty">
+ <img
+ src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=600&q=80"
+ alt="Beauty products"
+ />
+ <span>Beauty</span>
+ </button>
+
+ <button class="category-card" data-category="Fitness">
+ <img
+ src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=600&q=80"
+ alt="Fitness equipment"
+ />
+ <span>Fitness</span>
+ </button>
+
+ <button class="category-card" data-category="Accessories">
+ <img
+ src="https://images.unsplash.com/photo-1523779917675-b6ed3a42a561?auto=format&fit=crop&w=600&q=80"
+ alt="Accessories"
+ />
+ <span>Accessories</span>
+ </button>
+ </div>
+ </div>
+ </section>
+
+ <!-- Products -->
+ <section class="section products-section" id="shop">
+ <div class="container">
+ <div class="section-title-row">
+ <div>
+ <p class="eyebrow">Customer favorites</p>
+ <h2>Featured Products</h2>
+ </div>
+ <p class="product-result" id="productResult"></p>
+ </div>
+
+ <div class="shop-layout">
+ <aside class="shop-sidebar">
+ <h3>Filter Products</h3>
+
+ <div class="filter-group">
+ <p>Category</p>
+ <button class="filter active" data-category="All">All Products</button>
+ <button class="filter" data-category="Fashion">Fashion</button>
+ <button class="filter" data-category="Tech">Technology</button>
+ <button class="filter" data-category="Home">Home & Living</button>
+ <button class="filter" data-category="Beauty">Beauty</button>
+ <button class="filter" data-category="Fitness">Fitness</button>
+ <button class="filter" data-category="Accessories">Accessories</button>
+ </div>
+
+ <div class="filter-group">
+ <p>Price Range</p>
+ <button class="price-filter active-price" data-price="All">Any price</button>
+ <button class="price-filter" data-price="50">Under $50</button>
+ <button class="price-filter" data-price="100">Under $100</button>
+ <button class="price-filter" data-price="200">Under $200</button>
+ </div>
+ </aside>
+
+ <div class="products-area">
+ <div class="shop-tools">
+ <p id="activeFilterText">Showing all products</p>
+ <select id="sortProducts" aria-label="Sort products">
+ <option value="default">Sort: Featured</option>
+ <option value="low-high">Price: Low to High</option>
+ <option value="high-low">Price: High to Low</option>
+ <option value="name">Name: A to Z</option>
+ </select>
+ </div>
+
+ <div class="product-grid" id="productGrid"></div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Offer section -->
+ <section class="offer-section" id="deals">
+ <div class="container offer-grid">
+ <div class="offer-image-wrap">
+ <img
+ src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=85"
+ alt="Customer shopping online"
+ />
+ </div>
+
+ <div class="offer-content">
+ <p class="eyebrow">Limited-time offer</p>
+ <h2>Save more when you shop more.</h2>
+ <p>
+ Get 15% off your first order when you join the ShopNest community.
+ Receive product updates, exclusive discounts, and special offers.
+ </p>
+
+ <form class="newsletter-form" id="newsletterForm">
+ <input
+ type="email"
+ id="newsletterEmail"
+ placeholder="Enter your email address"
+ required
+ />
+ <button type="submit" class="button primary">Get My Discount</button>
+ </form>
+
+ <p class="newsletter-message" id="newsletterMessage"></p>
+ </div>
+ </div>
+ </section>
+
+ <!-- About -->
+ <section class="section about-section" id="about">
+ <div class="container about-grid">
+ <div>
+ <p class="eyebrow">About ShopNest</p>
+ <h2>A simpler, friendlier way to shop online.</h2>
+ </div>
+
+ <div>
+ <p>
+ ShopNest is a demo online marketplace designed to make shopping
+ feel easy, safe, and enjoyable. Browse popular categories, compare
+ products, and add your favorites to a saved shopping cart.
+ </p>
+
+ <div class="stats-grid">
+ <div>
+ <strong>10K+</strong>
+ <span>Happy shoppers</span>
+ </div>
+ <div>
+ <strong>500+</strong>
+ <span>Products available</span>
+ </div>
+ <div>
+ <strong>24/7</strong>
+ <span>Customer support</span>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Contact -->
+ <section class="section contact-section" id="contact">
+ <div class="container contact-grid">
+ <div>
+ <p class="eyebrow">Need help?</p>
+ <h2>Talk to our support team.</h2>
+ <p>
+ Have a question about a product, delivery, return, or partnership?
+ Send a message and we will get back to you.
+ </p>
+
+ <div class="contact-details">
+ <p>📧 hello@shopnest.com</p>
+ <p>📞 +1 (555) 123-4567</p>
+ <p>📍 New York City, NY</p>
+ <p>🕒 Monday–Saturday, 9 AM–6 PM</p>
+ </div>
+ </div>
+
+ <form class="contact-form" id="contactForm">
+ <label for="name">Full name</label>
+ <input type="text" id="name" placeholder="Your full name" required />
+
+ <label for="email">Email address</label>
+ <input type="email" id="email" placeholder="you@example.com" required />
+
+ <label for="message">Your message</label>
+ <textarea
+ id="message"
+ rows="5"
+ placeholder="How can we help you?"
+ required
+ ></textarea>
+
+ <button type="submit" class="button primary">Send Message</button>
+ <p class="form-message" id="formMessage"></p>
+ </form>
+ </div>
+ </section>
+ </main>
+
+ <!-- Footer -->
+ <footer class="footer">
+ <div class="container footer-grid">
+ <div>
+ <a href="#home" class="logo footer-logo">Shop<span>Nest</span></a>
+ <p>
+ A modern marketplace for the products you need and the things you love.
+ </p>
+ </div>
+
+ <div>
+ <h3>Shop</h3>
+ <a href="#shop">All Products</a>
+ <a href="#categories">Categories</a>
+ <a href="#deals">Special Deals</a>
+ </div>
+
+ <div>
+ <h3>Customer Care</h3>
+ <a href="#contact">Contact Us</a>
+ <a href="#contact">Shipping & Delivery</a>
+ <a href="#contact">Returns & Refunds</a>
+ </div>
+
+ <div>
+ <h3>Follow Us</h3>
+ <div class="social-links">
+ <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+ <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
+ <a href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok</a>
+ <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+ </div>
+ </div>
+ </div>
+
+ <div class="container copyright">
+ <p>© 2026 ShopNest. Demo e-commerce website.</p>
+ </div>
+ </footer>
+
+ <!-- WhatsApp -->
+ <a
+ class="whatsapp"
+ href="https://wa.me/15551234567?text=Hello%20ShopNest%2C%20I%20need%20help."
+ target="_blank"
+ rel="noopener"
+ aria-label="Chat with us on WhatsApp"
+ >
+ 💬 <span>Chat on WhatsApp</span>
+ </a>
+
+ <!-- Cart -->
+ <aside class="cart-panel" id="cartPanel">
+ <div class="cart-header">
+ <div>
+ <p class="eyebrow">Your order</p>
+ <h2>Shopping Cart</h2>
+ </div>
+ <button id="closeCart" aria-label="Close cart">×</button>
+ </div>
+
+ <div class="cart-items" id="cartItems"></div>
+
+ <div class="cart-summary">
+ <div class="cart-total">
+ <span>Subtotal</span>
+ <strong id="cartTotal">$0.00</strong>
+ </div>
+
+ <p class="shipping-note">Shipping and tax are calculated at checkout.</p>
+
+ <button class="button primary checkout" id="checkoutButton">
+ Proceed to Checkout
+ </button>
+ </div>
+ </aside>
+
+ <!-- Product popup -->
+ <div class="modal" id="productModal">
+ <div class="modal-content">
+ <button class="modal-close" id="closeModal" aria-label="Close product details">×</button>
+ <div id="modalBody"></div>
+ </div>
+ </div>
+
+ <div class="overlay" id="overlay"></div>
+
+ <script src="script.js"></script>
+</body>
+</html>
